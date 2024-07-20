@@ -20,19 +20,35 @@ h1 {
 }
 
 p {
-  font-weight: 400;
-  line-height: 1.5; /* More legible text */
+    font-weight: 400;
+    line-height: 1.5;
+    /* More legible text */
+}
+
+input[type=text], input[type=number], select {
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: white;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14pt;
+    color: black;
+    padding: 0 10px 0 10px;
+    line-height: 2;
 }
 
 .line-wrap {
     line-height: 25%;
 }
 
+.hidden {
+    display: none;
+}
+
 /* DIV STYLES*/
 
 .header {
     width: 30%;
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
@@ -56,29 +72,30 @@ p {
 
 .content {
     width: 30%;
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
 .footer {
-    width:30%;
-    display:flex;
-    align-items: center; 
+    width: 30%;
+    display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: column-reverse;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 10pt;
     font-style: italic;
 }
+
 .footer p {
-  margin: 0.5em 0 0 0;
+    margin: 0.5em 0 0 0;
 }
 
 #social-icons-flexbox {
     display: flex;
-    width:40%;
+    width: 40%;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
@@ -86,21 +103,22 @@ p {
 }
 
 .score-banner {
-    display:flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
     gap: 0 20px;
-    margin: 20px 0 0 0 ;
+    margin: 20px 0 0 0;
 }
 
 #total-count {
     flex-grow: 2;
-    margin:10;
+    margin: 10;
 }
+
 #correct-count {
     flex-grow: 2;
-    margin:10;
+    margin: 10;
 
 }
 
@@ -110,8 +128,8 @@ table {
     text-align: left;
     text-justify: inter-word;
     width: 80%;
-    margin-left: auto; 
-    margin-right: auto;    
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td {
@@ -158,7 +176,7 @@ a {
 .btn {
     color: black;
     padding: 10px 30px 10px 30px;
-    width:fit-content;  
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
 }
@@ -184,13 +202,13 @@ a {
     align-items: center;
     row-gap: 10px;
 }
-  
+
 #keyboard-cont div {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:5px;
-    width:70%;
+    gap: 5px;
+    width: 70%;
 }
 
 .keyboard-button {
@@ -199,7 +217,7 @@ a {
     font-family: 'Roboto Mono', monospace;
     background-color: white;
     line-height: 1.5;
-    font-size:12pt;
+    font-size: 12pt;
     touch-action: manipulation;
     flex: 1 1 0px;
     margin-left: auto;
@@ -207,9 +225,16 @@ a {
     box-shadow: 3px 3px 0px black;
 }
 
-.keyboard-button.clicked {
-    transform: translate(2px,2px);
+.keyboard-button:active,
+.keyboard-button.active {
+    transform: translate(2px, 2px);
     box-shadow: 0px 0px 0px black;
+}
+
+.keyboard-button:disabled {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px black;
+    background-color: #cdcdcd;
 }
 
 /* ATTEMPT ENTRY */
@@ -234,30 +259,41 @@ a {
 /* ATTEMPT BOXES */
 
 #word-prompts {
-  display: flex;
-  flex-direction: row;
-  gap: 10px; 
-  margin: 10px 0 10px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 10px 0 10px 0;
+    justify-content: center;
 }
 
 .prompt {
-  flex: 1 1 0px;
-  padding: 10px;
-  aspect-ratio: 1/1;
-  align-items: center;
-  margin: 5px 5px 1rem 5px;
-  position: relative;
-}
-.prompt::before { /* Center the play icon */
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
+    flex: 1 1 0px;
+    aspect-ratio: 1/1;
+    align-items: center;
+    position: relative;
+    padding: 24px;
+    font-size: 24pt;
+    color: #cdcdcd;
 }
 
-.prompt.clicked {
-    transform: translate(5px, 5px);
-    box-shadow: 0px 0px 0px black;
+.prompt:disabled {
+    pointer-events: none;
+}
+
+.prompt.selected {
+    color: black;
+}
+
+.prompt.submitted {
+    color: black;
+}
+
+.prompt::before {
+    /* Center the play icon */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* PRACTICE MODE */
@@ -271,3 +307,48 @@ transform: translate(-50%, -50%);
 #end-game-btn {
     border-radius: 50px;
 }
+
+/* Custom Game Options Page */
+
+
+.player-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.player-list-item p {
+    flex-grow: 1;
+    text-align: start;
+}
+
+.remove-player, .remove-round {
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+.player-list-item, .round-list-item, .round-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.round-list-item {
+    margin-bottom: .5rem;
+}
+
+.round-options {
+    gap: .5rem;
+}
+
+.round-list-item p {
+    margin: 0px;
+}
+
+.round-list-item select {
+    height: 40px;
+}
+
+
+

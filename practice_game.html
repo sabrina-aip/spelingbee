@@ -21,16 +21,24 @@
     </div>
     <div class="content">
         <div id="top-banner" class="score-banner">
-            <i class="" id="correct-count"></i>
-            <i class="" id="total-count"></i>
+            <div>
+                <i class="" id="correct-count"></i>
+                <p>Lives Remaining</p>
+            </div>
+            <div>
+                <i class="" id="total-count"></i>
+                <p>Total Words</p>
+            </div>
         </div>
         <div id="practice-prompt">
-            <div id="word-one" class="prompt boxed btn fa fa-play-circle" style="font-size: 24pt;">
-                <audio id="word-one-player" src="" loop></audio>
+            <div id="prompt">
+
             </div>
             <input id="attempt-box" type="text" placeholder="start typing..." readonly>
         </div>
-        <div id="keyboard"></div>
+        <div id="keyboard">
+
+        </div>
         
     </div>
 
@@ -44,6 +52,5 @@
         </div>
     </div> 
 </body>
-<script src="assets/scripts/wordLstGenerator.js"></script>
-<script src="assets/scripts/practice.js"></script> 
+<script type="module" src="assets/scripts/practice.js"></script> 
 </html>

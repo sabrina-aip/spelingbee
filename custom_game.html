@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
-    <title>Spellcheck - A Word Game | Play</title>
+    <title>Spellcheck - A Word Game | Practice</title>
     <link rel="stylesheet" href="assets/styles/large_style.css" media="(min-width: 800px)">
     <link rel="stylesheet" href="assets/styles/mobile_style.css" media="(max-width: 800px)">
     <link rel="stylesheet" href="assets/styles/no_scroll.css" media="(max-width: 800px)">
@@ -21,13 +21,26 @@
     </div>
     <div class="content">
         <div id="top-banner">
-            <h2 class="boxed-black"><span id="round"></span>: <span id="roundType"></span></h2>
+            <div>
+                <h2 class="boxed-black"><span id="round"></span>: <span id="roundType"></span></h2>
+            </div>
         </div>
-        <div id="word-prompts"></div>
-        <div id="next-round-btn"></div>
-        <input id="attempt-box" type="text" placeholder="start typing..." readonly>
-        <div id="keyboard"></div>
-        <button class="keyboard-button boxed hidden" type="button" id="next">Next Level <span class="fa fa-arrow-right"></span></button>
+        <div id="gameInput">
+            <div>
+                <i class="" id="total-count"></i>
+                <h2><span id="currentPlayer"></span>'s Turn</h2>
+            </div>
+            <div id="practice-prompt">
+                <div id="prompt">
+    
+                </div>
+                <input id="attempt-box" type="text" placeholder="start typing..." readonly>
+            </div>
+            <div id="keyboard">
+    
+            </div>
+        </div>
+        <button class="keyboard-button boxed hidden" type="button" id="next">Next Round<span class="fa fa-arrow-right"></span></button>
     </div>
 
     <div class="footer">
@@ -40,5 +53,5 @@
         </div>
     </div> 
 </body>
-<script type="module" src="assets/scripts/daily_challenge.js"></script>
+<script type="module" src="assets/scripts/pnp.js"></script> 
 </html>

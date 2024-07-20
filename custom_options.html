@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
-    <title>Spellcheck - A Word Game | Play</title>
+    <title>Spellcheck - A Word Game | Practice</title>
     <link rel="stylesheet" href="assets/styles/large_style.css" media="(min-width: 800px)">
     <link rel="stylesheet" href="assets/styles/mobile_style.css" media="(max-width: 800px)">
     <link rel="stylesheet" href="assets/styles/no_scroll.css" media="(max-width: 800px)">
@@ -20,14 +20,26 @@
         </div>
     </div>
     <div class="content">
-        <div id="top-banner">
-            <h2 class="boxed-black"><span id="round"></span>: <span id="roundType"></span></h2>
+        <div>
+            <h2 class="boxed-black">Players</h2>
+            <div id="playerList">
+                <!-- players list -->
+
+            </div>
+            <input id="playerName" type="text" placeholder="Player name">
+            <button id="addPlayer" class="keyboard-button boxed">add</button>
         </div>
-        <div id="word-prompts"></div>
-        <div id="next-round-btn"></div>
-        <input id="attempt-box" type="text" placeholder="start typing..." readonly>
-        <div id="keyboard"></div>
-        <button class="keyboard-button boxed hidden" type="button" id="next">Next Level <span class="fa fa-arrow-right"></span></button>
+        <div>
+            <h2 class="boxed-black">Rounds</h2>
+            <div id="roundList">
+            </div>
+            <button id="addRound" class="keyboard-button boxed">add round</button>
+        </div>
+        <div>
+            <br>
+            <br>
+            <button id="startGame" class="keyboard-button boxed" disabled="true">Start Game</button>
+        </div>        
     </div>
 
     <div class="footer">
@@ -40,5 +52,7 @@
         </div>
     </div> 
 </body>
-<script type="module" src="assets/scripts/daily_challenge.js"></script>
+<script type="module" src="assets/scripts/custom_options.js"></script> 
+
+<!-- <script type="module" src="assets/scripts/practice.js"></script>  -->
 </html>
