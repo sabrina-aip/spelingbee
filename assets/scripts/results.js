@@ -18,7 +18,7 @@ const typos = document.querySelector("#typos")
 // }
 
 const resultsJson = JSON.parse(sessionStorage.getItem('results'));
-
+console.log(sessionStorage.getItem('results'));
 let totalCount = 0;
 let totalCorrect = 0;
 

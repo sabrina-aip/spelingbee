@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
@@ -10,11 +11,13 @@
     <link rel="icon" type="image/x-icon" href="assets/icons/spellcheck.png">
 
 </head>
+
 <body>
-    
+
     <div class="header">
         <div id="header-with-menu">
-            <a href="index.html" class="boxed btn" id="header-menu"><i class="fa fa-arrow-left" style="font-size:30pt; padding:0%"></i></a>
+            <a href="index.html" class="boxed btn" id="header-menu"><i class="fa fa-arrow-left"
+                    style="font-size:30pt; padding:0%"></i></a>
             <div></div>
             <h1 class="boxed" id="header-title"><span class="">Spellcheck</span></h1>
         </div>
@@ -23,44 +26,69 @@
     <div class="content">
         <p><i>select game mode</i></p>
 
-        <h2 class="boxed-black"><span class="error">dayly</span> challenge</h2>
-        <p>Expand your <span class="error">vocabulry</span> and spell these words that refresh daily.</p>
-        <a href="solo_game.html" >
-            <div class="btn boxed">
-                play the daily &ensp;<i class="fa-solid fa-calendar" style="font-size:10pt;"></i>
+        <div class="page-flow">
+            <div class="game-mode">
+                <h2 class="boxed-black"><span class="error">dayly</span> challenge</h2>
+                <p>Expand your <span class="error">vocabulry</span> and spell these words that refresh daily.</p>
+                <a href="solo_game.html">
+                    <div class="btn boxed">
+                        play the daily &ensp;<i class="fa-solid fa-calendar" style="font-size:10pt;"></i>
+                    </div>
+                </a>
             </div>
-        </a>
-
-        <h2 class="boxed-black">practice mode</h2>
-        <p>Set a difficulty level and see how many words you can spell <span class="error">bfore</span> running out of lives.</p>
-        <p><i>set word difficulty</i></p>
-            <div class="switch-field">
-                <input type="radio" name="difficulty-switch" id="easy"/>
-                <label>easy</label>
-                <input type="radio" name="difficulty-switch" id="medium" checked/>
-                <label>medium</label>
-                <input type="radio" name="difficulty-switch"id="hard"/>
-                <label>hard</label>
+        </div>
+        <div class="page-flow">
+            <div class="game-mode">
+                <h2 class="boxed-black">practice mode</h2>
+                <p>Set a difficulty level and see how many words you can spell <span class="error">bfore</span> running
+                    out of
+                    lives.</p>
+                <p><i>set word difficulty</i></p>
+                <div class="switch-field">
+                    <input type="radio" name="difficulty-switch" id="easy" />
+                    <label>easy</label>
+                    <input type="radio" name="difficulty-switch" id="medium" checked />
+                    <label>medium</label>
+                    <input type="radio" name="difficulty-switch" id="hard" />
+                    <label>hard</label>
+                </div>
+                <br>
+                <a href="practice_game.html">
+                    <div class="btn boxed">
+                        practice &ensp;<i class="fa-solid fa-dumbbell" style="font-size:10pt;"></i>
+                    </div>
+                </a>
             </div>
-            <br>
-        
-        <a href="practice_game.html" >
-            <div class="btn boxed">
-                practice &ensp;<i class="fa-solid fa-dumbbell" style="font-size:10pt;"></i>
+        </div>
+        <div class="page-flow">
+            <div class="game-mode">
+                <h2 class="boxed-black">Custom Game</h2>
+                <p>Create your own spelling <span class="error">bbe!</span></p>
+                <a href="custom_options.html">
+                    <div class="btn boxed">
+                        Customize &ensp;<i class="fa-solid fa-gear" style="font-size:10pt;"></i>
+                    </div>
+                </a>
             </div>
-        </a>
+        </div>
     </div>
 
     <br>
     <div class="footer">
-        <div><p>an answer in progress <span class="error">prject</span></p></div>
-        <div id="social-icons-flexbox">
-            <a href="https://www.youtube.com/answerinprogress" target="_blank" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.instagram.com/answerinprogress" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.patreon.com/answerinprogress" target="_blank" class="social-icon"><i class="fa-brands fa-patreon"></i></a>
-            <a href="https://answerinprogress.substack.com/" target="_black" class="social-icon"><i class="fa-regular fa-envelope"></i></a>
+        <div>
+            <p>an answer in progress <span class="error">prject</span></p>
         </div>
-    </div>    
+        <div id="social-icons-flexbox">
+            <a href="https://www.youtube.com/answerinprogress" target="_blank" class="social-icon"><i
+                    class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/answerinprogress" target="_blank" class="social-icon"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.patreon.com/answerinprogress" target="_blank" class="social-icon"><i
+                    class="fa-brands fa-patreon"></i></a>
+            <a href="https://answerinprogress.substack.com/" target="_black" class="social-icon"><i
+                    class="fa-regular fa-envelope"></i></a>
+        </div>
+    </div>
 </body>
 <script>
     // record the practice level setting
@@ -74,4 +102,5 @@
         });
     });
 </script>
+
 </html>

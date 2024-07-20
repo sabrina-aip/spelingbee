@@ -9,7 +9,7 @@ const count = document.querySelector('#count')
 
 const title = 'Spellcheck';
 const prompt = new Prompts(promptElement);
-const keyboard = new Keyboard(keyboardElement);
+const keyboard = new Keyboard(keyboardElement, attempt);
 const wordGen = new WordGen("content");
 const wordList = [...wordGen.chooseWords('easy', 10), ...wordGen.chooseWords('medium', 10),  ...wordGen.chooseWords('hard', 80)];
 

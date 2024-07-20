@@ -25,6 +25,17 @@ p {
     /* More legible text */
 }
 
+input[type=text], input[type=number], select {
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: white;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14pt;
+    color: black;
+    padding: 0 10px 0 10px;
+    line-height: 2;
+}
+
 .line-wrap {
     line-height: 25%;
 }
@@ -296,3 +307,48 @@ a {
 #end-game-btn {
     border-radius: 50px;
 }
+
+/* Custom Game Options Page */
+
+
+.player-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.player-list-item p {
+    flex-grow: 1;
+    text-align: start;
+}
+
+.remove-player, .remove-round {
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+.player-list-item, .round-list-item, .round-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.round-list-item {
+    margin-bottom: .5rem;
+}
+
+.round-options {
+    gap: .5rem;
+}
+
+.round-list-item p {
+    margin: 0px;
+}
+
+.round-list-item select {
+    height: 40px;
+}
+
+
+

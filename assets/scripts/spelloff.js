@@ -10,7 +10,7 @@ const count = document.querySelector('#count');
 const title = 'Spell Off';
 const difficulty = 'hard';
 const prompt = new Prompts(promptElement);
-const keyboard = new Keyboard(keyboardElement);
+const keyboard = new Keyboard(keyboardElement, attempt);
 const wordList = new WordGen("phil").chooseWords(difficulty, 25);
 
 let wordCounter = 0;

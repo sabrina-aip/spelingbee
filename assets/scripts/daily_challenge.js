@@ -10,7 +10,7 @@ const attempt = document.querySelector("#attempt-box");
 const next = document.querySelector("#next");
 
 const prompt = new Prompts(promptElement);
-const keyboard = new Keyboard(keyboardElement);
+const keyboard = new Keyboard(keyboardElement, attempt);
 const wordGen = new WordGen();
 const timeOffset = wordGen.date.getTime() - WordGen.EPOC;
 const title = 'Daily #' + Math.floor(timeOffset / 86400000).toString();

@@ -2,8 +2,11 @@ const firstRowLetters = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
 const secondRowLetters = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
 const thirdRowLetters = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
 export class Keyboard {
-    constructor(keyboard) {
+    constructor(keyboard, input) {
         this.keyboard = keyboard;
+        this.input = input;
+        this.selectionStart = 0;
+        this.selectionEnd = 0;
         this.listeners = new Map();
         this.output = '';
         this.backspaceDisabled = true;
@@ -22,7 +25,9 @@ export class Keyboard {
             }
             this.writeLetter(key.id);
         };
+
         this.buildKeyboard();
+
         document.addEventListener("keydown", (e) => {
 
             e.preventDefault();
@@ -31,11 +36,11 @@ export class Keyboard {
 
             const pressedKey = e.key.toLowerCase();
 
-            if (!['backspace', 'enter'].includes(pressedKey) && /[a-z]/.test(pressedKey) == false)return;
+            if (!['backspace', 'enter'].includes(pressedKey) && /[a-z]/.test(pressedKey) == false) return;
 
             const key = this.keyboard.querySelector(`#${pressedKey}`);
 
-            if (!key)return;
+            if (!key) return;
 
             key.classList.add("active");
             if (pressedKey == "backspace") {
@@ -49,6 +54,7 @@ export class Keyboard {
             }
             this.writeLetter(pressedKey);
         });
+
         document.addEventListener('keyup', (e) => {
             e.preventDefault();
             if (this.inputDisabled)
@@ -66,6 +72,27 @@ export class Keyboard {
                 this.submit();
             }
         });
+
+        this.input.addEventListener('click', res => {
+            const ele = res.target;
+            const caret = this.output.split('|')
+            const word = caret.join('')
+            this.selectionStart = ele.selectionStart
+            this.selectionEnd = ele.selectionEnd 
+            // this.output = word.slice(0, this.selectionStart) + '|' + this.output.slice(this.selectionEnd)
+            this.trigger('change', this.output);
+        })
+
+        // this.input.addEventListener('focus', res => {
+        //     const ele = res.target;
+        //     console.log('focus')
+        //     const caret = this.output.split('|')
+        //     const word = caret.join('')
+        //     this.selectionStart = ele.selectionStart
+        //     this.selectionEnd = ele.selectionEnd 
+        //     this.output = word.slice(0, this.selectionStart) + '|' + this.output.slice(this.selectionEnd)
+        //     this.trigger('change', this.output);
+        // })
     }
     buildKeyboard() {
         const keyboardContainer = document.createElement('div');
@@ -112,23 +139,37 @@ export class Keyboard {
         this.keyboard.appendChild(keyboardContainer);
     }
     writeLetter(letter) {
-        this.output += letter;
+        this.output = this.output.slice(0, this.selectionStart) + letter + this.output.slice(this.selectionEnd)
         if (this.output.length > 0) {
             this.keyboard.querySelector('#backspace').disabled = this.backspaceDisabled = false;
             this.keyboard.querySelector('#enter').disabled = this.submitDisabled = false;
         }
         this.trigger('change', this.output);
+        this.selectionStart++
+        this.input.selectionStart = this.input.selectionEnd = this.selectionEnd = this.selectionStart;
+        this.input.focus();
+        this.input.setSelectionRange(this.selectionStart, this.selectionEnd );
     }
+
     deleteLetter() {
+        if (this.selectionStart == 0 && this.selectionEnd == 0) return;
+        let range = Math.abs(this.selectionStart - this.selectionEnd);
+        let start = (range == 0) ? this.selectionStart - 1 : this.selectionStart;
+        let end = (range == 0) ? this.selectionStart : this.selectionStart + range;
         if (this.output.length > 0) {
-            this.output = this.output.slice(0, -1);
+            this.output = this.output.slice(0, start) + this.output.slice(end);
         }
         if (this.output.length == 0) {
             this.keyboard.querySelector('#backspace').disabled = this.backspaceDisabled = true;
             this.keyboard.querySelector('#enter').disabled = this.submitDisabled = true;
         }
         this.trigger('change', this.output);
+        this.selectionStart = this.selectionEnd = start;
+        this.input.selectionStart = this.input.selectionEnd = this.selectionStart;
+        this.input.focus();
+        this.input.setSelectionRange(this.selectionStart, this.selectionEnd );
     }
+
     submit() {
         this.trigger('submit', this.output);
     }
@@ -167,5 +208,10 @@ export class Keyboard {
             button.disabled = true;
         });
         this.trigger('change', this.output);
+    }
+    calculateSelection() {
+        let start
+        let range = this.selectionStart - this.selectionEnd;
+
     }
 }

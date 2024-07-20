@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
+    <title>Spellcheck - A Word Game | Practice</title>
+    <link rel="stylesheet" href="assets/styles/large_style.css" media="(min-width: 800px)">
+    <link rel="stylesheet" href="assets/styles/mobile_style.css" media="(max-width: 800px)">
+    <link rel="stylesheet" href="assets/styles/no_scroll.css" media="(max-width: 800px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/spellcheck.png">
+
+</head>
+<body>
+    <div class="header">
+        <div id="header-with-menu">
+            <a href="mode_select.html" class="boxed btn" id="header-menu"><i class="fa fa-arrow-left" style="font-size:30pt; padding:0%"></i></a>
+            <div></div>
+            <h1 class="boxed" id="header-title"><span class="">Spellcheck</span></h1>
+        </div>
+    </div>
+    <div class="content">
+        <div>
+            <h2 class="boxed-black">Players</h2>
+            <div id="playerList">
+                <!-- players list -->
+
+            </div>
+            <input id="playerName" type="text" placeholder="Player name">
+            <button id="addPlayer" class="keyboard-button boxed">add</button>
+        </div>
+        <div>
+            <h2 class="boxed-black">Rounds</h2>
+            <div id="roundList">
+            </div>
+            <button id="addRound" class="keyboard-button boxed">add round</button>
+        </div>
+        <div>
+            <br>
+            <br>
+            <button id="startGame" class="keyboard-button boxed" disabled="true">Start Game</button>
+        </div>        
+    </div>
+
+    <div class="footer">
+        <div><p>an answer in progress <span class="error">prject</span></p></div>
+        <div id="social-icons-flexbox">
+            <a href="https://www.youtube.com/answerinprogress" target="_blank" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/answerinprogress" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.patreon.com/answerinprogress" target="_blank" class="social-icon"><i class="fa-brands fa-patreon"></i></a>
+            <a href="https://answerinprogress.substack.com/" target="_black" class="social-icon"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+    </div> 
+</body>
+<script type="module" src="assets/scripts/custom_options.js"></script> 
+
+<!-- <script type="module" src="assets/scripts/practice.js"></script>  -->
+</html>

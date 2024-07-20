@@ -10,7 +10,7 @@ const livesCount = document.querySelector('#correct-count')
 
 const difficulty = sessionStorage.getItem("level");
 const prompt = new Prompts(promptElement);
-const keyboard = new Keyboard(keyboardElement);
+const keyboard = new Keyboard(keyboardElement, attempt);
 const wordGen = new WordGen();
 const wordList = wordGen.shuffle(difficulty);
 
